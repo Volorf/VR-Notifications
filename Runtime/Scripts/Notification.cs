@@ -1,5 +1,8 @@
+using System;
+
 namespace Volorf.VRNotifications
 {
+    [Serializable]
     public struct Notification
     {
         public readonly string Message;
