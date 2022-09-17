@@ -9,6 +9,16 @@ namespace Volorf.VRNotifications
 {
     public class NotificationManager : MonoBehaviour
     {
+        public static NotificationManager Instance
+        {
+            get
+            {
+                return _notificationManager;
+            }
+        }
+
+        private static NotificationManager _notificationManager;
+        
         [SerializeField] private NotificationSettings notificationSettings;
 
         [Header("Elements")]
@@ -95,7 +105,19 @@ namespace Volorf.VRNotifications
                 notificationSettings.hideCurve, 
                 callback));
         }
-        
+
+        private void Awake()
+        {
+            if (_notificationManager != null && _notificationManager != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                _notificationManager = this;
+            }
+        }
+
         private void Start()
         {
             if (Camera.main != null) _camera = Camera.main.transform;
