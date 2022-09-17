@@ -8,7 +8,7 @@ namespace Volorf.VRNotifications
         public string Message;
         public NotificationType Type;
 
-        public Notification(string msg, NotificationType type, float dur)
+        public Notification(string msg, NotificationType type)
         {
             Message = msg;
             Type = type;
