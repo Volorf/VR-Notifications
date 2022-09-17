@@ -40,7 +40,7 @@ namespace Volorf.VRNotifications
         public void ShowMessage()
         {
             _messageCounter++;
-            Notification not = new Notification("Message number " + _messageCounter, NotificationType.Error, 5f);
+            Notification not = new Notification("Message number " + _messageCounter, NotificationType.Error);
             AddMessage(not); 
         }
 
