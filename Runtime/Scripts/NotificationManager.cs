@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-namespace Volorf.Tools
+namespace Volorf.VRNotifications
 {
     public class NotificationManager : MonoBehaviour
     {

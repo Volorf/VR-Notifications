@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Volorf.Tools
+namespace Volorf.VRNotifications
 {
     [CreateAssetMenu(fileName = "Notification Settings", menuName = "Create Notification Settings")]
     public class NotificationSettings : ScriptableObject

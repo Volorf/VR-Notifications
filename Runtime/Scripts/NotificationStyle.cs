@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Volorf.Tools
+namespace Volorf.VRNotifications
 {
     [Serializable]
     public struct NotificationStyle

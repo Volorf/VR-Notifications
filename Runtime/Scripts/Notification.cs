@@ -1,4 +1,4 @@
-namespace Volorf.Tools
+namespace Volorf.VRNotifications
 {
     public struct Notification
     {
