@@ -5,8 +5,8 @@ namespace Volorf.VRNotifications
     [Serializable]
     public struct Notification
     {
-        public readonly string Message;
-        public readonly NotificationType Type;
+        public string Message;
+        public NotificationType Type;
 
         public Notification(string msg, NotificationType type, float dur)
         {
