@@ -44,10 +44,22 @@ namespace Volorf.VRNotifications
             AddMessage(not); 
         }
 
+        public void AddMessage(string message, NotificationType type)
+        {
+            Notification notification = new Notification(message, type);
+            AddMessageToQueue(notification);
+            
+        }
+        
         public void AddMessage(Notification not)
         {
+            AddMessageToQueue(not);
+        }
+
+        private void AddMessageToQueue(Notification not)
+        {
             _notificationQueue.Enqueue(not);
-            print("Length of Notification Queue: " + _notificationQueue.Count);
+            // print("Length of Notification Queue: " + _notificationQueue.Count);
             
             if (!_isNotificationExecutorRunning)
             {
