@@ -50,6 +50,12 @@ namespace Volorf.VRNotifications
             AddMessageToQueue(notification);
             
         }
+
+        public void AddMessage(string message)
+        {
+            Notification notification = new Notification(message, NotificationType.Info);
+            AddMessageToQueue(notification);
+        }
         
         public void AddMessage(Notification not)
         {
