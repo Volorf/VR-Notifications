@@ -109,7 +109,7 @@ namespace Volorf.VRNotifications
             canvas.transform.localScale = Vector3.zero;
             messageLabel.text = notification.Message;
 
-            _canUpdateSizeOfElements = true;
+            StartCoroutine(CallNextFrame());
             
             Action callback = delegate { HideMessage(notification); };
             StartCoroutine(MessageAnimation(
@@ -190,14 +190,10 @@ namespace Volorf.VRNotifications
             _isNotificationExecutorRunning = false;
         }
 
-        private void OnGUI()
+        private IEnumerator CallNextFrame()
         {
-            if (_canUpdateSizeOfElements)
-            {
-                UpdateElementsSizeInstance.UpdateSizeOfElements();
-                _canUpdateSizeOfElements = false;
-            }
-            
+            yield return null;
+            UpdateElementsSizeInstance.UpdateSizeOfElements();
         }
 
         private IEnumerator FollowHead()
