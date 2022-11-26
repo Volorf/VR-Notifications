@@ -18,10 +18,11 @@ namespace Volorf.VRNotifications
         }
 
         private static NotificationManager _notificationManager;
-        
+
         [SerializeField] private NotificationSettings notificationSettings;
 
         [Header("Elements")]
+        [SerializeField] private UpdateElementsSize UpdateElementsSizeInstance;
         [SerializeField] private Canvas canvas;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI messageLabel;
@@ -103,6 +104,7 @@ namespace Volorf.VRNotifications
             
             canvas.transform.localScale = Vector3.zero;
             messageLabel.text = notification.Message;
+            UpdateElementsSizeInstance.UpdateSizeOfElements();
             
             Action callback = delegate { HideMessage(notification); };
             StartCoroutine(MessageAnimation(
