@@ -36,12 +36,16 @@ namespace Volorf.VRNotifications
         private bool _isMessageShowing = false;
 
         private int _messageCounter = 0;
+        private bool _canUpdateSizeOfElements;
 
         [ContextMenu("Show Message")]
         public void ShowMessage()
         {
             _messageCounter++;
-            Notification not = new Notification("Message number " + _messageCounter, NotificationType.Error);
+
+            string str = _messageCounter % 2 == 0 ? " some additional long text " : "";
+            
+            Notification not = new Notification("Message number " + _messageCounter + str, NotificationType.Error);
             AddMessage(not); 
         }
 
@@ -104,7 +108,8 @@ namespace Volorf.VRNotifications
             
             canvas.transform.localScale = Vector3.zero;
             messageLabel.text = notification.Message;
-            UpdateElementsSizeInstance.UpdateSizeOfElements();
+
+            _canUpdateSizeOfElements = true;
             
             Action callback = delegate { HideMessage(notification); };
             StartCoroutine(MessageAnimation(
@@ -183,6 +188,16 @@ namespace Volorf.VRNotifications
             }
             
             _isNotificationExecutorRunning = false;
+        }
+
+        private void OnGUI()
+        {
+            if (_canUpdateSizeOfElements)
+            {
+                UpdateElementsSizeInstance.UpdateSizeOfElements();
+                _canUpdateSizeOfElements = false;
+            }
+            
         }
 
         private IEnumerator FollowHead()

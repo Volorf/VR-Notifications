@@ -43,6 +43,8 @@ namespace Volorf.VRNotifications
     
             Vector2 finalSize = new Vector2(finalWidth, finalHeight);
             NotificationCanvasRect.sizeDelta = finalSize;
+            print(finalSize);
+            
         }
     }
 }
