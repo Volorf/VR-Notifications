@@ -20,6 +20,7 @@ namespace Volorf.VRNotifications
         private static NotificationManager _notificationManager;
 
         [SerializeField] private NotificationSettings notificationSettings;
+        [SerializeField] private DebugMessages DebugMessagesList;
 
         [Header("Elements")]
         [SerializeField] private UpdateElementsSize UpdateElementsSizeInstance;
@@ -38,31 +39,31 @@ namespace Volorf.VRNotifications
         private int _messageCounter = 0;
         private bool _canUpdateSizeOfElements;
 
-        [ContextMenu("Show Message")]
-        public void ShowMessage()
+        [ContextMenu("Send Debug Message")]
+        public void SendDebugMessage()
         {
-            _messageCounter++;
-
-            string str = _messageCounter % 2 == 0 ? " some additional long text " : "";
+            int index = _messageCounter % DebugMessagesList.Messages.Count;
             
-            Notification not = new Notification("Message number " + _messageCounter + str, NotificationType.Error);
-            AddMessage(not); 
+            Notification not = new Notification(DebugMessagesList.Messages[index], NotificationType.Error);
+            
+            _messageCounter++;
+            SendMessage(not); 
         }
 
-        public void AddMessage(string message, NotificationType type)
+        public void SendMessage(string message, NotificationType type)
         {
             Notification notification = new Notification(message, type);
             AddMessageToQueue(notification);
             
         }
 
-        public void AddMessage(string message)
+        public void SendMessage(string message)
         {
             Notification notification = new Notification(message, NotificationType.Info);
             AddMessageToQueue(notification);
         }
         
-        public void AddMessage(Notification not)
+        public void SendMessage(Notification not)
         {
             AddMessageToQueue(not);
         }

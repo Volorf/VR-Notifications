@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificationSettings: {fileID: 11400000, guid: b6438d368e0a34f278a972b697e0cef9, type: 2}
+  DebugMessagesList: {fileID: 11400000, guid: 3a95a4c2c15254fd192cdbe86d371384, type: 2}
   UpdateElementsSizeInstance: {fileID: 373833061456532790}
   canvas: {fileID: 677323918173364032}
   backgroundImage: {fileID: 9024823908240468815}
