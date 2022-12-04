@@ -15,20 +15,27 @@ Just 2 steps:
 Super simple. Find the ```VR Notification``` prefab and drop it into your scene.
 
 ## How to send a notification
-Personally, I love binding the ```SendMessage(<T> m)``` methods to UnityEvents that exposed in Editor to make it decoupled as mush as possible. Like this:
+Personally, I love binding the ```SendMessage(<T> m)``` methods to UnityEvents to make it decoupled as mush as possible.
 
 But since VR Notification object is ```Singleton``` and its methods are static, you can call them without having a direct reference to the object. ~~Single~~ Simple like this:
+
 ```csharp
 private void Start()
 {
-    Notification.Instance.SendMessage("It was sent from the Start() method");
+    Notification.Instance.SendMessage("Hello World!");
 }
-
 ```
 
 ## How to set up it
+All properties are in a Scriptable Object Asset. I found it very useful especially when you tweak values during the design iteration without recomplining the script each time you made changes and you can store diffrent versions of the values while you do the design experiments.
+
+### How to create ```Notificatation Settings```
 
 
-## Contacts
+### How to add the Settings
+
+
+## Links
+[Portfolio](https://olegfrolov.design/) | [Linkedin](https://www.linkedin.com/in/oleg-frolov-6a6a4752/) | [Dribbble](https://dribbble.com/Volorf) | [Twitter](https://www.twitter.com/volorf) 
 
 
