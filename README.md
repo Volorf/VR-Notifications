@@ -19,7 +19,11 @@ Personally, I love binding the ```SendMessage(<T> m)``` methods to UnityEvents t
 
 But since VR Notification object is ```Singleton``` and its methods are static, you can call them without having a direct reference to the object. ~~Single~~ Simple like this:
 ```csharp
-Notification.Instance.SendMessage("Hello World!");
+private void Start()
+{
+    Notification.Instance.SendMessage("It was sent from the Start() method");
+}
+
 ```
 
 ## How to set up it
