@@ -17,18 +17,19 @@ Easy-peasy. Just 3 steps:
 <img src="Images/add-package-from-git-url.png" width="600">
 <img src="Images/paste-git-url.png" width="600">
 
-# How to add VR Notification to your project
-Super simple. Find the ```VR Notification``` prefab and drop it into your scene.
+# How to add it to your project
+Super simple. Find the `VR Manager` prefab and drop it into your scene.
+<img src="Images/vr-manager-prefab.png" width="600">
 
 # How to notify
-Personally, I love binding the ```SendMessage(<T> m)``` methods to UnityEvents to make it decoupled as mush as possible.
+Personally, I love binding the `SendMessage(<T> m)` methods to UnityEvents to make it decoupled as mush as possible.
 
-But since VR Notification object is ```Singleton``` and its methods are static, you can call them without having a direct reference to the object. ~~Single~~ Straightforwad like this:
+But since `VR Notifications` object is `Singleton` and its methods are static, you can call them without having a direct reference to the object. Very straightforward:
 
 ```csharp
 private void Start()
 {
-    Notification.Instance.SendMessage("Hello World!");
+    NotificationManager.Instance.SendMessage("Hello World!");
 }
 ```
 
