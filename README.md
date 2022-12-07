@@ -7,15 +7,11 @@ Originally, I developed this package for [VR Boxel Editor](https://twitter.com/V
 # How to install the package
 Easy-peasy. Just 3 steps:
 
-#### 1. Copy Git URL
-<img src="Images/copy-git-url.png" width="600">
+1. Copy Git URL
+2. Open `Window/Package Manager`
+3. Add VR Notifications package via `Add package from git URL`
 
-#### 2. Open ```Window/Package Manager```
-<img src="Images/package-manager.png" width="600">
-
-#### 3. Add VR Notifications package via ```Add package from git URL```
-<img src="Images/add-package-from-git-url.png" width="600">
-<img src="Images/paste-git-url.png" width="600">
+<img src="Images/install-via-git-url.gif" width="800">
 
 # How to add it to your project
 Super simple. Find the `VR Manager` prefab and drop it into your scene.
