@@ -18,8 +18,10 @@ Super simple. Find the `Notification Manager` prefab and drop it into your scene
 
 <img src="Images/add-to-scene.gif" width="800">
 
-# How to notify
+# How to send a notification
 Personally, I love binding the `SendMessage(<T> m)` methods to UnityEvents to make it decoupled as mush as possible.
+
+<img src="Images/coonect-to-button.gif" width="800">
 
 But since `Notification Manager` object is `Singleton` and its methods are static, you can call them without having a direct reference to the object. Very straightforward:
 
@@ -35,10 +37,10 @@ private void Start()
 All properties are in a Scriptable Object Asset. I found it very useful especially when you tweak values during the design iteration without recomplining the script each time you made changes and you can store diffrent versions of the values while you do the design experiments.
 
 ### How to create ```Notificatation Settings```
-
+<img src="Images/create-settings.gif" width="800">
 
 ### How to add the Settings
-
+<img src="Images/add-settings.gif" width="800">
 
 # Links
 [Portfolio](https://olegfrolov.design/) | [Linkedin](https://www.linkedin.com/in/oleg-frolov-6a6a4752/) | [Dribbble](https://dribbble.com/Volorf) | [Twitter](https://www.twitter.com/volorf) 
