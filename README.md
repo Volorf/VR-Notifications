@@ -23,7 +23,7 @@ Personally, I love binding the `SendMessage(<T> m)` methods to UnityEvents to ma
 
 <img src="Images/coonect-to-button.gif" width="800">
 
-But since `Notification Manager` object is `Singleton` and its methods are static, you can call them without having a direct reference to the object. Very straightforward:
+However, since `Notification Manager` object is `Singleton` and its methods are static, you can call them without having a direct reference to the object. Very straightforward:
 
 ```csharp
 private void Start()
@@ -34,12 +34,16 @@ private void Start()
 
 
 # How to set up it
-All properties are in a Scriptable Object Asset. I found it very useful especially when you tweak values during the design iteration without recomplining the script each time you made changes and you can store diffrent versions of the values while you do the design experiments.
+All properties are in a Scriptable Object Asset called "Notification Settings". 
 
-### How to create ```Notificatation Settings```
+I found it very useful especially when you tweak values during the design iterations without recomplining the script each time you made changes and you can store diffrent versions of the values while you do the design experiments.
+
+To create `Notification Settings`, go to `Create` / `Create Notification Settings`.
+
 <img src="Images/create-settings.gif" width="800">
+ 
+ Then drop the asset to the `Notification Manager`.
 
-### How to add the Settings
 <img src="Images/add-settings.gif" width="800">
 
 # Links
