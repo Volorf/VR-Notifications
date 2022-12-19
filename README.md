@@ -13,13 +13,24 @@ Easy-peasy. Just 3 steps:
 
 <img src="Images/install-via-git-url.gif" width="800">
 
+
 # How to add it to your project
+
 Super simple. Find the `Notification Manager` prefab and drop it into your scene.
 
 <img src="Images/add-to-scene.gif" width="800">
 
+
 # How to send a notification
+
 Personally, I love binding the `SendMessage(<T> m)` methods to UnityEvents to make it decoupled as mush as possible.
+
+```csharp
+// Create a custom Unity Event which can be exposed in UnityEditor
+
+[Serializable]
+public class NotificationEvent: UnityEvent<string> {}
+```
 
 <img src="Images/coonect-to-button.gif" width="800">
 
