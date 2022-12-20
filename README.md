@@ -58,10 +58,13 @@ public class MyScript : MonoBehaviour
 However, since `Notification Manager` object is `Singleton` and its methods are static, you can call them without having a direct reference to the object. Very straightforward:
 
 ```csharp
-private void Start()
+private void Update()
 {
-    NotificationManager.Instance.SendMessage("Hello World!");
-}
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        NotificationManager.Instance.SendMessage("Space has been pressed.");
+    }
+} 
 ```
 
 
