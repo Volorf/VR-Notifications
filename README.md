@@ -26,10 +26,31 @@ Super simple. Find the `Notification Manager` prefab and drop it into your scene
 Personally, I love binding the `SendMessage(<T> m)` methods to UnityEvents to make it decoupled as mush as possible.
 
 ```csharp
-// Create a custom Unity Event which can be exposed in UnityEditor
+using System;
+using UnityEngine.Events;
 
+// Create a custom Unity Event
 [Serializable]
 public class NotificationEvent: UnityEvent<string> {}
+```
+
+```csharp
+using UnityEngine;
+
+public class MyScript : MonoBehaviour
+{
+    // Expose the custom event in Editor
+    [SerializeField] 
+    private NotificationEvent MyEvent;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MyEvent.Invoke("Space has been pressed.");
+        }
+    }
+}
 ```
 
 <img src="Images/coonect-to-button.gif" width="800">
