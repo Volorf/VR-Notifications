@@ -1,6 +1,6 @@
-# VR Notification System
+# XR Notification System
 
-Simple easy-to-use Notification System for your wonderful VR project.
+Simple easy-to-use Notification System for your wonderful XR project.
 
 Originally, I developed this package for [VR Boxel Editor](https://twitter.com/Volorf/status/1305406161710125056).
 
@@ -58,7 +58,7 @@ public class MyScript : MonoBehaviour
 
 <img src="Images/bind-to-event.gif" width="800">
 
-However, since `Notification Manager` is `Singleton`, you can call its methods without having a direct reference to the object. Very straightforward:
+Also, since `Notification Manager` is `Singleton`, you can call its methods without having a direct reference to the object. Very straightforward:
 
 ```csharp
 private void Update()
@@ -76,15 +76,13 @@ private void Update()
 
 All properties are in a Scriptable Object Asset called "Notification Settings". 
 
-I found it very useful. Especially when you tweak values during the design iterations without recomplining the script each time you made changes and you can store diffrent versions of the values while you do the design experiments.
+<img src="Images/notification-settings.png" width="800">
 
-To create `Notification Settings`, go to `Create` / `Create Notification Settings`.
+I found it very useful. Especially when you tweak values a lot during the design iterations. Don't need to recompile the script each time you made changes and you can store diffrent versions of the values in separate assets while you do the design experiments.
 
-<img src="Images/create-settings.gif" width="800">
- 
- Then drop the asset to the `Notification Manager`.
+To create `Notification Settings`, go to `Create` / `Create Notification Settings`. Then drop the asset to the `Notification Manager`.
 
-<img src="Images/add-settings.gif" width="800">
+<img src="Images/notification-settings.gif" width="800">
 
 # Links
 [Portfolio](https://olegfrolov.design/) | [Linkedin](https://www.linkedin.com/in/oleg-frolov-6a6a4752/) | [Dribbble](https://dribbble.com/Volorf) | [Twitter](https://www.twitter.com/volorf) 
