@@ -44,6 +44,7 @@ using UnityEngine;
 public class MyScript : MonoBehaviour
 {
     [SerializeField] private string MyMessage = "Space has been pressed.";
+    // Expose the custom Unity Event in the Editor
     [SerializeField] private NotificationEvent MyEvent;
 
     private void Update()
@@ -78,13 +79,13 @@ All properties are in a Scriptable Object Asset called "Notification Settings".
 
 <img src="Images/notification-settings.png" width="800">
 
-I found it very useful. Especially when you tweak values a lot during the design iterations. Don't need to recompile the script each time you made changes and you can store diffrent versions of the values in separate assets while you do the design experiments.
+I found it very useful to have multiple data assets when you tweak values a lot during the design iterations. Don't need to recompile the script each time you made changes.
 
 To create `Notification Settings`, go to `Create` / `Create Notification Settings`. Then drop the asset to the `Notification Manager`.
 
 <img src="Images/notification-settings.gif" width="800">
 
-# Links
-[Portfolio](https://olegfrolov.design/) | [Linkedin](https://www.linkedin.com/in/oleg-frolov-6a6a4752/) | [Dribbble](https://dribbble.com/Volorf) | [Twitter](https://www.twitter.com/volorf) 
+# Contacts
+[Twitter](https://www.twitter.com/volorf) | [Linkedin](https://www.linkedin.com/in/oleg-frolov-6a6a4752/) | [Dribbble](https://dribbble.com/Volorf) | [Personal Site](https://olegfrolov.design/)
 
 
