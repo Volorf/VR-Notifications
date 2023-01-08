@@ -1,8 +1,8 @@
-# XR Notification System
+# VR Notifications
 
-Simple easy-to-use Notification System for your wonderful XR project.
+It's a simple, easy-to-use Notification System for your wonderful VR project.
 
-Originally, I developed this package for [VR Boxel Editor](https://twitter.com/Volorf/status/1305406161710125056).
+Initially, I developed this package for [VR Boxel Editor](https://twitter.com/Volorf/status/1305406161710125056).
 
 
 
@@ -27,7 +27,7 @@ Super simple. Find the `Notification Manager` prefab and drop it into your scene
 
 # How to send a notification
 
-I love binding `SendMessage` to UnityEvents to make it decoupled as mush as possible.
+I love binding `SendMessage` to UnityEvents to make it decoupled as much as possible.
 
 ```csharp
 using System;
@@ -73,13 +73,13 @@ private void Update()
 
 
 
-# How to set up it
+# How to set up
 
 All properties are in a Scriptable Object Asset called "Notification Settings". 
 
 <img src="Images/notification-settings.png" width="800">
 
-I found it very useful to have multiple data assets when you tweak values a lot during the design iterations. Don't need to recompile the script each time you made changes.
+It is very useful to have multiple data assets when you tweak values a lot during the design iterations. You don't need to recompile the script each time you make changes.
 
 To create `Notification Settings`, go to `Create` / `Create Notification Settings`. Then drop the asset to the `Notification Manager`.
 
