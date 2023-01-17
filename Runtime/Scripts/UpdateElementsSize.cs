@@ -21,7 +21,7 @@ namespace Volorf.VRNotifications
 
         private Vector2 _labelSize;
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             UpdateSizeOfElements();
         }
