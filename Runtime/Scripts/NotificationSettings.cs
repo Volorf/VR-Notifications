@@ -10,6 +10,7 @@ namespace Volorf.VRNotifications
         
         [Header("Positioning")]
         public float distanceFromHead;
+        public bool IsOffsetRelative;
         public float downOffset;
 
         [Header("Animation")]
