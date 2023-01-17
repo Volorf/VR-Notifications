@@ -46,7 +46,6 @@ namespace Volorf.VRNotifications
             else
             {
                 _notificationManager = this;
-                _notificationManager = this;
             }
         }
         
