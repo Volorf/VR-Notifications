@@ -18,16 +18,16 @@ namespace Volorf.VRNotifications
         }
 
         private static NotificationManager _notificationManager;
-
-        [SerializeField] private NotificationSettings notificationSettings;
+        [Header("Settings")]
+        [SerializeField] private NotificationSettings NotificationSettings;
 
         [Header("Elements")]
         [SerializeField] private UpdateElementsSize UpdateElementsSizeInstance;
-        [SerializeField] private Canvas canvas;
-        [SerializeField] private Image backgroundImage;
-        [SerializeField] private TextMeshProUGUI messageLabel;
+        [SerializeField] private Canvas UICanvas;
+        [SerializeField] private Image BackgroundImage;
+        [SerializeField] private TextMeshProUGUI MessageLabel;
+
         private Transform _camera;
-        
         private Vector3 _smoothPositionVelocity = Vector3.zero;
         private Vector3 _smoothForwardVelocity = Vector3.zero;
 
@@ -51,7 +51,6 @@ namespace Volorf.VRNotifications
         {
             Notification notification = new Notification(message, type);
             AddMessageToQueue(notification);
-            
         }
 
         public void SendMessage(string message)
@@ -68,12 +67,16 @@ namespace Volorf.VRNotifications
         private void AddMessageToQueue(Notification not)
         {
             _notificationQueue.Enqueue(not);
-            // print("Length of Notification Queue: " + _notificationQueue.Count);
-            
+
             if (!_isNotificationExecutorRunning)
             {
                 StartCoroutine(ExecuteNotifications());
-                StartCoroutine(FollowHead());
+                
+                if (NotificationSettings.FollowHead)
+                {
+                    StartCoroutine(FollowHead());
+                }
+                
             }
         }
         
@@ -84,16 +87,16 @@ namespace Volorf.VRNotifications
             switch (notification.Type)
             {
                 case NotificationType.Info:
-                    backgroundImage.color = notificationSettings.defaultNotificationStyle.backgroundColor;
-                    messageLabel.color = notificationSettings.defaultNotificationStyle.messageColor;
+                    BackgroundImage.color = NotificationSettings.defaultNotificationStyle.backgroundColor;
+                    MessageLabel.color = NotificationSettings.defaultNotificationStyle.messageColor;
                     break;
                 case NotificationType.Warning:
-                    backgroundImage.color = notificationSettings.warningNotificationStyle.backgroundColor;
-                    messageLabel.color = notificationSettings.warningNotificationStyle.messageColor;
+                    BackgroundImage.color = NotificationSettings.warningNotificationStyle.backgroundColor;
+                    MessageLabel.color = NotificationSettings.warningNotificationStyle.messageColor;
                     break;
                 case NotificationType.Error:
-                    backgroundImage.color = notificationSettings.errorNotificationStyle.backgroundColor;
-                    messageLabel.color = notificationSettings.errorNotificationStyle.messageColor;
+                    BackgroundImage.color = NotificationSettings.errorNotificationStyle.backgroundColor;
+                    MessageLabel.color = NotificationSettings.errorNotificationStyle.messageColor;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -104,17 +107,17 @@ namespace Volorf.VRNotifications
             
             TurnOnElements();
             
-            canvas.transform.localScale = Vector3.zero;
-            messageLabel.text = notification.Message;
+            UICanvas.transform.localScale = Vector3.zero;
+            MessageLabel.text = notification.Message;
 
             StartCoroutine(CallNextFrame());
             
             Action callback = delegate { HideMessage(notification); };
             StartCoroutine(MessageAnimation(
                 Vector3.one,
-                notificationSettings.toShowDuration, 
+                NotificationSettings.toShowDuration, 
                 0f,
-                notificationSettings.showCurve, 
+                NotificationSettings.showCurve, 
                 callback));
         }
 
@@ -123,9 +126,9 @@ namespace Volorf.VRNotifications
             Action callback = delegate { TurnOffElements(); };
             StartCoroutine(MessageAnimation(
                 Vector3.zero, 
-                notificationSettings.toHideDuration,
-                notificationSettings.defaultDuration, 
-                notificationSettings.hideCurve, 
+                NotificationSettings.toHideDuration,
+                NotificationSettings.defaultDuration, 
+                NotificationSettings.hideCurve, 
                 callback));
         }
 
@@ -144,7 +147,7 @@ namespace Volorf.VRNotifications
         private void Start()
         {
             if (Camera.main != null) _camera = Camera.main.transform;
-            canvas.transform.localScale = Vector3.zero;
+            UICanvas.transform.localScale = Vector3.zero;
         }
 
         private void TurnOnElements()
@@ -161,13 +164,13 @@ namespace Volorf.VRNotifications
 
         private void SetElementsState(bool b)
         {
-            canvas.enabled = b;
+            UICanvas.enabled = b;
             // messageLabel.enabled = b;
         }
         
         private Vector3 CalculateSnackBarPosition()
         {
-            return _camera.position + _camera.forward * notificationSettings.distanceFromHead + _camera.up * -1f * notificationSettings.downOffset;
+            return _camera.position + _camera.forward * NotificationSettings.distanceFromHead + _camera.up * -1f * NotificationSettings.downOffset;
         }
 
         private IEnumerator ExecuteNotifications()
@@ -182,7 +185,7 @@ namespace Volorf.VRNotifications
                     ShowMessage(messageToShow);
                 }
                 
-                yield return new WaitForSeconds(notificationSettings.checkingFrequency);
+                yield return new WaitForSeconds(NotificationSettings.checkingFrequency);
             }
             
             _isNotificationExecutorRunning = false;
@@ -200,10 +203,10 @@ namespace Volorf.VRNotifications
             {
                 Vector3 newPos = CalculateSnackBarPosition();
                 transform.position = Vector3.SmoothDamp(transform.position, newPos,
-                    ref _smoothPositionVelocity, notificationSettings.followHeadSmoothKoef);
+                    ref _smoothPositionVelocity, NotificationSettings.followHeadSmoothKoef);
 
                 Vector3 newForward = (_camera.position - transform.position).normalized;
-                transform.forward = Vector3.SmoothDamp(transform.forward, newForward, ref _smoothForwardVelocity, notificationSettings.lookAtHeadSmoothKoef);
+                transform.forward = Vector3.SmoothDamp(transform.forward, newForward, ref _smoothForwardVelocity, NotificationSettings.lookAtHeadSmoothKoef);
                 
                 yield return null;
             }
@@ -212,7 +215,7 @@ namespace Volorf.VRNotifications
         private IEnumerator MessageAnimation(Vector3 targetScale, float duration, float delay, AnimationCurve curve, Action callback)
         {
             float timer = 0f;
-            Vector3 curScale = canvas.transform.localScale;
+            Vector3 curScale = UICanvas.transform.localScale;
 
             while (timer <= delay)
             {
@@ -226,7 +229,7 @@ namespace Volorf.VRNotifications
             {
                 float val = timer / duration;
                 Vector3 newScale = Vector3.LerpUnclamped(curScale, targetScale, curve.Evaluate(val));
-                canvas.transform.localScale = newScale;
+                UICanvas.transform.localScale = newScale;
                 timer += Time.deltaTime;
                 yield return null;
             }

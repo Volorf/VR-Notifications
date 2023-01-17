@@ -11,7 +11,7 @@ namespace Volorf.VRNotifications
         [Header("Positioning")]
         public float distanceFromHead;
         public float downOffset;
-        
+
         [Header("Animation")]
         public float toShowDuration;
         public AnimationCurve showCurve;
@@ -19,6 +19,7 @@ namespace Volorf.VRNotifications
         public AnimationCurve hideCurve;
         
         [Header("Following Head")]
+        public bool FollowHead;
         public float followHeadSmoothKoef;
         public float lookAtHeadSmoothKoef;
 
