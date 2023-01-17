@@ -169,7 +169,8 @@ namespace Volorf.VRNotifications
         
         private Vector3 CalculateSnackBarPosition()
         {
-            return _camera.position + _camera.forward * NotificationSettings.distanceFromHead + _camera.up * -1f * NotificationSettings.downOffset;
+            Vector3 flatCameraForward = new Vector3(_camera.forward.x, 0f, _camera.forward.z).normalized;
+            return _camera.position + flatCameraForward * NotificationSettings.distanceFromHead + _camera.up * -1f * NotificationSettings.downOffset;
         }
 
         private IEnumerator ExecuteNotifications()
