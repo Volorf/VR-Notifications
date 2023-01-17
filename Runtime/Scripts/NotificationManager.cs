@@ -18,6 +18,7 @@ namespace Volorf.VRNotifications
         }
 
         private static NotificationManager _notificationManager;
+
         [Header("Settings")]
         [SerializeField] private NotificationSettings NotificationSettings;
 
@@ -26,17 +27,34 @@ namespace Volorf.VRNotifications
         [SerializeField] private Canvas UICanvas;
         [SerializeField] private Image BackgroundImage;
         [SerializeField] private TextMeshProUGUI MessageLabel;
-
+        
         private Transform _camera;
         private Vector3 _smoothPositionVelocity = Vector3.zero;
         private Vector3 _smoothForwardVelocity = Vector3.zero;
-
         private Queue<Notification> _notificationQueue = new Queue<Notification>();
         private bool _isNotificationExecutorRunning = false;
         private bool _isMessageShowing = false;
-
         private int _messageCounter = 0;
         private bool _canUpdateSizeOfElements;
+        
+        private void Awake()
+        {
+            if (_notificationManager != null && _notificationManager != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                _notificationManager = this;
+                _notificationManager = this;
+            }
+        }
+        
+        private void Start()
+        {
+            if (Camera.main != null) _camera = Camera.main.transform;
+            UICanvas.transform.localScale = Vector3.zero;
+        }
 
         [ContextMenu("Send Debug Message")]
         public void SendDebugMessage()
@@ -58,7 +76,7 @@ namespace Volorf.VRNotifications
             Notification notification = new Notification(message, NotificationType.Info);
             AddMessageToQueue(notification);
         }
-        
+
         public void SendMessage(Notification not)
         {
             AddMessageToQueue(not);
@@ -79,7 +97,6 @@ namespace Volorf.VRNotifications
                 
             }
         }
-        
         
         private void ShowMessage(Notification notification)
         {
@@ -130,24 +147,6 @@ namespace Volorf.VRNotifications
                 NotificationSettings.defaultDuration, 
                 NotificationSettings.hideCurve, 
                 callback));
-        }
-
-        private void Awake()
-        {
-            if (_notificationManager != null && _notificationManager != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _notificationManager = this;
-            }
-        }
-
-        private void Start()
-        {
-            if (Camera.main != null) _camera = Camera.main.transform;
-            UICanvas.transform.localScale = Vector3.zero;
         }
 
         private void TurnOnElements()
