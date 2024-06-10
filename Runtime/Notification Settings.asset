@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a4969ee2b414c2bbc7d21b605f099a, type: 3}
+  m_Script: {fileID: 11500000, guid: 682d1631f29fd4da4b29b40a6a12ee1e, type: 3}
   m_Name: Notification Settings
   m_EditorClassIdentifier: 
-  defaultDuration: 4
+  defaultDuration: 3
   checkingFrequency: 1
-  distanceFromHead: 0.5
-  downOffset: 0.2
-  FollowHead: 0
+  distanceFromHead: 1
+  IsOffsetRelative: 0
+  downOffset: 0.3
   toShowDuration: 0.5
   showCurve:
     serializedVersion: 2
@@ -24,57 +24,58 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 4.1816936
-      outSlope: 4.1816936
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.016763844
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.12939335
-      outSlope: 0.12939335
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.037901103
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  toHideDuration: 0.2
-  hideCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
       inSlope: 2
       outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  followHeadSmoothKoef: 0.3
-  lookAtHeadSmoothKoef: 0.1
+  toHideDuration: 0.3
+  hideCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FollowHead: 0
+  followHeadSmoothKoef: 0.5
+  lookAtHeadSmoothKoef: 0.5
   defaultNotificationStyle:
-    backgroundColor: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0.7490196}
+    backgroundColor: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 1}
     messageColor: {r: 1, g: 1, b: 1, a: 1}
   warningNotificationStyle:
-    backgroundColor: {r: 1, g: 0.60075843, b: 0.0990566, a: 0.7490196}
-    messageColor: {r: 0, g: 0, b: 0, a: 1}
+    backgroundColor: {r: 1, g: 0.70460516, b: 0.3176471, a: 1}
+    messageColor: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 1}
   errorNotificationStyle:
-    backgroundColor: {r: 1, g: 0.14498705, b: 0.0990566, a: 0.7490196}
+    backgroundColor: {r: 1, g: 0.19607842, b: 0.3078231, a: 1}
     messageColor: {r: 1, g: 1, b: 1, a: 1}

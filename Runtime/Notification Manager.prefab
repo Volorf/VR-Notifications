@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4648180506502111654}
   - component: {fileID: 677323918173364032}
   - component: {fileID: 1831003137831664701}
-  - component: {fileID: 2773482152455588738}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -34,7 +33,6 @@ RectTransform:
   - {fileID: 2224872615611613662}
   - {fileID: 9110839969708849722}
   m_Father: {fileID: 1169930348085027055}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -58,7 +56,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -85,23 +85,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &2773482152455588738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3157302438062461525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &4224710244315779038
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +116,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4648180506502111654}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -268,7 +250,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4648180506502111654}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -338,6 +319,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8782431661946676165}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -345,7 +327,6 @@ Transform:
   m_Children:
   - {fileID: 4648180506502111654}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8445886020198771531
 MonoBehaviour:
@@ -356,10 +337,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8782431661946676165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f70d7dd9da68467a8d53449214df423, type: 3}
+  m_Script: {fileID: 11500000, guid: d45df3527c7c24bb091d3a90cd26b873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NotificationSettings: {fileID: 11400000, guid: b6438d368e0a34f278a972b697e0cef9, type: 2}
+  NotificationSettings: {fileID: 11400000, guid: 113851d799d954cabac479f445693f9d, type: 2}
   UpdateElementsSizeInstance: {fileID: 373833061456532790}
   UICanvas: {fileID: 677323918173364032}
   BackgroundImage: {fileID: 9024823908240468815}
