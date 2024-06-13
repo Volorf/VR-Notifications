@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Volorf.VRNotifications
@@ -22,8 +23,9 @@ namespace Volorf.VRNotifications
         [Header("Settings")]
         [SerializeField] private NotificationSettings NotificationSettings;
 
+        [FormerlySerializedAs("UpdateElementsSizeInstance")]
         [Header("Elements")]
-        [SerializeField] private UpdateElementsSize UpdateElementsSizeInstance;
+        [SerializeField] private UpdateElementsSize _updateElementsSize;
         [SerializeField] private Canvas UICanvas;
         [SerializeField] private Image BackgroundImage;
         [SerializeField] private TextMeshProUGUI MessageLabel;
@@ -67,6 +69,14 @@ namespace Volorf.VRNotifications
         public void SendMessage(string message, NotificationType type)
         {
             Notification notification = new Notification(message, type);
+            AddMessageToQueue(notification);
+        }
+        
+        public void SendMessage(string message, string subMessage, NotificationType type = NotificationType.Info)
+        {
+            string finalMessage = $"{message} \n<alpha=#33>{subMessage}";
+            
+            Notification notification = new Notification(finalMessage, type);
             AddMessageToQueue(notification);
         }
 
@@ -203,7 +213,8 @@ namespace Volorf.VRNotifications
         private IEnumerator CallNextFrame()
         {
             yield return null;
-            UpdateElementsSizeInstance.UpdateSizeOfElements();
+            yield return null;
+            _updateElementsSize.UpdateSizeOfElements();
         }
 
         private IEnumerator FollowHead()
