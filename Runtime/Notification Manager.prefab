@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.36800003, y: 0.1112}
+  m_SizeDelta: {x: 0.38800004, y: 0.1112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &677323918173364032
 Canvas:
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NotificationSettings: {fileID: 11400000, guid: 113851d799d954cabac479f445693f9d, type: 2}
-  UpdateElementsSizeInstance: {fileID: 373833061456532790}
+  _updateElementsSize: {fileID: 373833061456532790}
   UICanvas: {fileID: 677323918173364032}
   BackgroundImage: {fileID: 9024823908240468815}
   MessageLabel: {fileID: 6230544223523674859}
@@ -361,6 +361,6 @@ MonoBehaviour:
   NotificationLabelRect: {fileID: 9110839969708849722}
   NotificationCanvasRect: {fileID: 4648180506502111654}
   VerticalOffset: 0.08
-  HorizontalOffset: 0.08
+  HorizontalOffset: 0.1
   MinWidth: 0.24
   MinHeight: 0.24
