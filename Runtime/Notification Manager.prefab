@@ -150,7 +150,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Notification message
+  m_text: 'Notification message
+
+    Hello world'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b1aa02e790d14238ac2ad979d291f13, type: 2}
   m_sharedMaterial: {fileID: 3551768697907141846, guid: 2b1aa02e790d14238ac2ad979d291f13, type: 2}
@@ -189,7 +191,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 48
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
