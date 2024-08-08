@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682d1631f29fd4da4b29b40a6a12ee1e, type: 3}
   m_Name: Notification Settings
   m_EditorClassIdentifier: 
-  defaultDuration: 3
+  defaultDuration: 8
   checkingFrequency: 1
   distanceFromHead: 1
   IsOffsetRelative: 0
